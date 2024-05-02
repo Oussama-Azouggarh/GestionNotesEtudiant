@@ -21,6 +21,7 @@ public class Etudiant implements Serializable {
     private String mail;
     private String niveau;
     private String classe;
+    private String ghirtest;
 
 
 
