@@ -19,7 +19,7 @@ public class Note implements Serializable {
     private Etudiant etudiant;
 
     @OneToOne
-    @JoinColumn(name = "id_mat")
+    @JoinColumn(name = "id_matiere")
     private Matiere matiere;
 
 
