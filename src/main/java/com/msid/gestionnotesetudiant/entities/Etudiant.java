@@ -14,7 +14,8 @@ public class Etudiant implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Etudiant;
-    private String fullName;
+    private String firstName;
+    private String lastName;
     @Column(unique=true)
     private String email;
     private String niveau;
