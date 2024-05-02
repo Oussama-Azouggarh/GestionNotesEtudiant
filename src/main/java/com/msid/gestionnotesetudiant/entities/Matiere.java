@@ -17,4 +17,5 @@ public class Matiere implements Serializable {
     private double Devoir2;
     private double Devoir3;
     private int Coeff;
+    private int hhhhhh;
 }
