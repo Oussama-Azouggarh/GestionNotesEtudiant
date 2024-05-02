@@ -14,6 +14,7 @@ public class Note implements Serializable {
     private Long id_Note;
     double Valeur;
 
+
     @ManyToOne
     @JoinColumn(name = "id_Etudiant")
     private Etudiant etudiant;
