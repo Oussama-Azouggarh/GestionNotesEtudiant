@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class Etudiant implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_Etudiant;
     private String fullName;
     private String email;
     private String niveau;
