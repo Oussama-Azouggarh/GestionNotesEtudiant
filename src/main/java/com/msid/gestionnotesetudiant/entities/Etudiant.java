@@ -14,7 +14,7 @@ public class Etudiant {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fullName;
-    private String mail;
+    private String email;
     private String niveau;
     private String classe;
 

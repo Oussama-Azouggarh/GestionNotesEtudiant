@@ -10,14 +10,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
-
-
 import jakarta.persistence.*;
-
-        import lombok.*;
-
-
-        import java.io.Serializable;
+import lombok.*;
+import java.io.Serializable;
 @Entity
 @Data
 @NoArgsConstructor
