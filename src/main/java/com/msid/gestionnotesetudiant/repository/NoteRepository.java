@@ -1,4 +1,4 @@
-package com.msid.gestionnotesetudiant.dao;
+package com.msid.gestionnotesetudiant.repository;
 
 
 
