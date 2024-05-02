@@ -8,13 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Matier implements Serializable {
+public class Note implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_mat;
-    private String Nom;
-    private double Devoir1;
-    private double Devoir2;
-    private double Devoir3;
-    private int Coeff;
+    private Long id_Note;
+    double Valeur;
+
 }
