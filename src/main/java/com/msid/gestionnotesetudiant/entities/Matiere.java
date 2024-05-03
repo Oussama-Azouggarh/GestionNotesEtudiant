@@ -4,30 +4,33 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Data @NoArgsConstructor @AllArgsConstructor @ToString @Builder
 public class Matiere implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_matiere;
     private String Nom;
-    @OneToOne
-    private Note devoir1;
-    @OneToOne
-    private Note devoir2;
-    @OneToOne
-    private Note devoir3;
+
+    private double devoir1;
+
+    private double devoir2;
+
+
+    private double devoir3;
     private int Coeff;
-    @OneToOne
-    private Note noteMatiere=null;
+
+
+    private double noteMatiere=0.0;
+
+    @ManyToOne
+    @JoinColumn(name = "id_Etudiant")
+    private Etudiant etudiant;
 
 
     public void calculerMoyenneMatiere() {
 
-         double sommeDevoirs = this.devoir1.getValeur() + this.devoir2.getValeur() + this.devoir3.getValeur();
-         noteMatiere.setValeur((sommeDevoirs) / 3) ;
+         double sommeDevoirs = this.devoir1 + this.devoir2 + this.devoir3;
+          noteMatiere=sommeDevoirs / 3 ;
     }
 
 
