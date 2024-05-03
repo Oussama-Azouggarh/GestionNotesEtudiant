@@ -10,10 +10,9 @@ import lombok.*;
 @ToString
 @Builder
 public class Note implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Note;
-    double Valeur;
+    private double Valeur;
 
 
     @ManyToOne

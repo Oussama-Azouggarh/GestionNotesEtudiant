@@ -30,22 +30,22 @@ public class GestionNotesEtudiantApplication {
 					.build());
 
 			etudiantRepository.findAll().forEach(et->{
-
 					Matiere matiere=Matiere.builder().Nom("math").devoir1(15.0).devoir2(12).devoir3(20).Coeff(5).etudiant(et).build();
 					matiere.calculerMoyenneMatiere();
+				    matiereRepository.save(matiere);
+				    Note note= Note.builder().Valeur(matiere.getNoteMatiere()).etudiant(et).matiere(matiere).build();
+				    noteRepository.save(note);
+
 					Matiere matiere1=Matiere.builder().Nom("eco").devoir1(10).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
 					matiere1.calculerMoyenneMatiere();
-				matiereRepository.findAll().forEach(mat->{
-							for(int i=0;i<4;i++){
-								Note note= Note.builder().Valeur(mat.getNoteMatiere()).etudiant(et).matiere(mat).build();
-								Note note1= Note.builder().Valeur(mat.getNoteMatiere()).etudiant(et).matiere(mat).build();
-								noteRepository.save(note);
-				}
-						}
+				    matiereRepository.save(matiere1);
+				    Note note1= Note.builder().Valeur(matiere1.getNoteMatiere()).etudiant(et).matiere(matiere1).build();
+					noteRepository.save(note1);
 
-				);
-					matiereRepository.save(matiere);
-					matiereRepository.save(matiere1);
+
+
+
+
 
 
 
