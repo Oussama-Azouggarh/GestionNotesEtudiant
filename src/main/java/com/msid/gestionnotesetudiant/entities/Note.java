@@ -13,8 +13,6 @@ public class Note implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_Note;
     private double Valeur;
-    private int ayoub;
-
 
     @ManyToOne
     @JoinColumn(name = "id_Etudiant")
