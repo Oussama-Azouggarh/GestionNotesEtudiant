@@ -8,7 +8,7 @@ import lombok.*;
 public class Matiere implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_matiere;
+    private Long id;
     private String Nom;
 
     private double devoir1;
@@ -31,6 +31,7 @@ public class Matiere implements Serializable {
 
          double sommeDevoirs = this.devoir1 + this.devoir2 + this.devoir3;
           noteMatiere=sommeDevoirs / 3 ;
+
     }
 
 

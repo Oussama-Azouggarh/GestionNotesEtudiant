@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 public class Note implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Note;
+    private Long id;
     private double Valeur;
 
     @ManyToOne

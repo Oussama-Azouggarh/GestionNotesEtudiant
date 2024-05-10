@@ -13,32 +13,38 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class MatiereRestController {
-
+public class EtudiantRestController {
+    @Autowired
     private EtudiantRepository etudiantRepository;
+    @Autowired
     private MatiereRepository matiereRepository;
 
-    public MatiereRestController(EtudiantRepository etudiantRepository, MatiereRepository matiereRepository) {
 
-        this.etudiantRepository = etudiantRepository;
-        this.matiereRepository = matiereRepository;
+    @GetMapping(value="/listEtudiants")
+    public List<Etudiant> listEtudiants(){
 
+        return etudiantRepository.findAll();
     }
 
-    @GetMapping(path = "/matieres")
-    public List<Matiere> allMatieres() {
+    @GetMapping(value="/listEtudiantId/{id}")
+    public Etudiant listEtudiantId (@PathVariable(name="id") Long id) {
+        return etudiantRepository.findById(id).get();
+    }
+
+    @GetMapping(value="/listEtudiantNiveau/{niveau}")
+    public Etudiant listEtudiantNiveau (@PathVariable(name="niveau") String niveau) {
+        return etudiantRepository.findByNiveau(niveau).get();
+    }
+
+
+    @GetMapping(value = "/listMatiers")
+    public List<Matiere> listMatiers(){
         return matiereRepository.findAll();
     }
 
-    @GetMapping(path = "/matieres/{id}")
-    public Matiere getMatiereById(@PathVariable Long id_matiere) {
-        return matiereRepository.findById(id_matiere).get();
-    }
 
-    @GetMapping(path = "/etudiants")
-    public List<Etudiant> allEtudiants() {
-        return etudiantRepository.findAll();
-    }
+
+
 
 
 

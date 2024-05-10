@@ -13,10 +13,10 @@ import java.io.Serializable;
 public class Etudiant implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Etudiant;
+    private Long id;
     private String firstName;
     private String lastName;
-    @Column(unique=true)
+    //@Column(unique=true)
     private String email;
     private String niveau;
     private String classe;

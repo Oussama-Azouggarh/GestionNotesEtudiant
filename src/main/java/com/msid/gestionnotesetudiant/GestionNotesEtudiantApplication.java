@@ -6,15 +6,23 @@ import com.msid.gestionnotesetudiant.entities.Note;
 import com.msid.gestionnotesetudiant.repository.EtudiantRepository;
 import com.msid.gestionnotesetudiant.repository.MatiereRepository;
 import com.msid.gestionnotesetudiant.repository.NoteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import java.util.UUID;
 
 @SpringBootApplication
 public class GestionNotesEtudiantApplication {
+	@Autowired
+	private EtudiantRepository etudiantRepository;
+	@Autowired
+	private MatiereRepository matiereRepository;
+	@Autowired
+	private RepositoryRestConfiguration restConfiguration;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionNotesEtudiantApplication.class, args);
