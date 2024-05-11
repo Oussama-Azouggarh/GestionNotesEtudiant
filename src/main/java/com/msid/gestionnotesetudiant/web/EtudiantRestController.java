@@ -6,9 +6,7 @@ import com.msid.gestionnotesetudiant.entities.Matiere;
 import com.msid.gestionnotesetudiant.repository.EtudiantRepository;
 import com.msid.gestionnotesetudiant.repository.MatiereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,14 +34,27 @@ public class EtudiantRestController {
         return etudiantRepository.findByNiveau(niveau).get();
     }
 
-
     @GetMapping(value = "/listMatiers")
     public List<Matiere> listMatiers(){
         return matiereRepository.findAll();
     }
 
+    @PutMapping(value="/listEtudiants/(id}")
+    public Etudiant update(@PathVariable(name="id") Long id,@RequestBody Etudiant p){
+        p.setId(id);
+        return etudiantRepository.save(p);
 
+    }
 
+    @PostMapping(value="/listEtudiants")
+    public Etudiant save(@RequestBody Etudiant p) {
+        return etudiantRepository.save(p);
+    }
+
+    @DeleteMapping(value="/listEtudiants/{id}")
+    public void delete(@PathVariable(name="id") Long id) {
+        etudiantRepository.deleteById(id);
+    }
 
 
 
