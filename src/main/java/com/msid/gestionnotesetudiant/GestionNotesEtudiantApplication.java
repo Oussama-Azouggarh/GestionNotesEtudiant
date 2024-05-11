@@ -30,6 +30,10 @@ public class GestionNotesEtudiantApplication {
 
 	@Bean
 	CommandLineRunner commandLineRunner(EtudiantRepository etudiantRepository, NoteRepository noteRepository, MatiereRepository matiereRepository){
+		restConfiguration.exposeIdsFor(Etudiant.class);
+		restConfiguration.exposeIdsFor(Matiere.class);
+		restConfiguration.exposeIdsFor(Note.class);
+
 
 		return args -> {
 			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada").email("ayoub@ayoub.com").niveau("tcs").classe("A")
