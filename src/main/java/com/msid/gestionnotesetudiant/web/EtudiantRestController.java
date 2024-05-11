@@ -52,8 +52,25 @@ public class EtudiantRestController {
     }
 
     @DeleteMapping(value="/listEtudiants/{id}")
-    public void delete(@PathVariable(name="id") Long id) {
+    public void deleteEtudiant(@PathVariable(name="id") Long id) {
         etudiantRepository.deleteById(id);
+    }
+
+    @PutMapping(value="/listMatiers/{id}")
+    public Matiere update(@PathVariable(name="id") Long id,@RequestBody Matiere p){
+        p.setId(id);
+        return matiereRepository.save(p);
+
+    }
+
+    @PostMapping(value="/listMatiers")
+    public Matiere save(@RequestBody Matiere p) {
+        return matiereRepository.save(p);
+    }
+
+    @DeleteMapping(value="/listMatiers/{id}")
+    public void deleteMatiere(@PathVariable(name="id") Long id) {
+        matiereRepository.deleteById(id);
     }
 
 
