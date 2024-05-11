@@ -17,16 +17,30 @@ import java.util.Optional;
 @CrossOrigin("*")
 @RepositoryRestResource
 public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
-
-
+/*
     Optional<Etudiant> findById(long id);
-
-
+    Optional<Etudiant> findById(long id);
     Optional<Etudiant> findByNiveau(String niveau);
     Optional<Etudiant> findByFirstName(String firstName);
     Optional<Etudiant> findByLastName(String lastName);
 
+*/
 
+    Optional<Etudiant> findByNiveau(String niveau);
+    @RestResource (path = "/byFirstName")
+    public List<Etudiant> findByFirstNameContains(@Param("mc") String first);
+    @RestResource (path = "/byFirstNamePage")
+    public Page<Etudiant> findByFirstNameContains(@Param("mc") String first, Pageable pageable);
+
+    @RestResource (path = "/byLastName")
+    public List<Etudiant> findByLastNameContains(@Param("mc") String last);
+    @RestResource (path = "/byLastNamePage")
+    public Page<Etudiant> findByLastNameContains(@Param("mc") String last, Pageable pageable);
+
+    @RestResource (path = "/byNiveau")
+    public List<Etudiant> findByNiveauContains(@Param("mc") String niveau);
+    @RestResource (path = "/byNiveauPage")
+    public Page<Etudiant> findByNiveauContains(@Param("mc") String niveau, Pageable pageable);
 
 
 }
