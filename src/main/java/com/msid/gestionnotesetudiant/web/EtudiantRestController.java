@@ -39,7 +39,7 @@ public class EtudiantRestController {
         return matiereRepository.findAll();
     }
 
-    @PutMapping(value="/listEtudiants/(id}")
+    @PutMapping(value="/listEtudiants/{id}")
     public Etudiant update(@PathVariable(name="id") Long id,@RequestBody Etudiant p){
         p.setId(id);
         return etudiantRepository.save(p);
