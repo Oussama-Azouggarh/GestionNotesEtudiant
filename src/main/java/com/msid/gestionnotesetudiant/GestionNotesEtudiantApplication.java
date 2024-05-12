@@ -12,6 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 //import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import java.util.UUID;
@@ -23,8 +24,8 @@ public class GestionNotesEtudiantApplication {
 	private EtudiantRepository etudiantRepository;
 	@Autowired
 	private MatiereRepository matiereRepository;
-	/*@Autowired
-	private RepositoryRestConfiguration restConfiguration;*/
+	@Autowired
+	private RepositoryRestConfiguration restConfiguration;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionNotesEtudiantApplication.class, args);
@@ -32,15 +33,16 @@ public class GestionNotesEtudiantApplication {
 
 	@Bean
 	CommandLineRunner commandLineRunner(EtudiantRepository etudiantRepository, NoteRepository noteRepository, MatiereRepository matiereRepository){
-		/*restConfiguration.exposeIdsFor(Etudiant.class);
+
+		restConfiguration.exposeIdsFor(Etudiant.class);
 		restConfiguration.exposeIdsFor(Matiere.class);
-		restConfiguration.exposeIdsFor(Note.class);*/
+		restConfiguration.exposeIdsFor(Note.class);
 
 
 		return args -> {
-			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada").email("ayoub@ayoub.com").niveau("tcs").classe("A")
+			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada").email("ayoub@ayoub.com").niveau("tcs").classe("A").username("ayoub").password("ayoub")
 					.build());
-			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada").email("oussama@oussama.com").niveau("tcs").classe("B")
+			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada").email("oussama@oussama.com").niveau("tcs").classe("B").username("oussama").password("oussama")
 					.build());
 
 			etudiantRepository.findAll().forEach(et->{

@@ -10,14 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/etudiant")
 public class EtudiantRestController {
     @Autowired
     private EtudiantRepository etudiantRepository;
-    @Autowired
-    private MatiereRepository matiereRepository;
+
 
 
     @GetMapping(value="/listEtudiants")
@@ -35,10 +34,7 @@ public class EtudiantRestController {
         return etudiantRepository.findByNiveau(niveau).get();
     }
 
-    @GetMapping(value = "/listMatiers")
-    public List<Matiere> listMatiers(){
-        return matiereRepository.findAll();
-    }
+
 
     @PutMapping(value="/listEtudiants/{id}")
     public Etudiant update(@PathVariable(name="id") Long id,@RequestBody Etudiant p){
@@ -57,22 +53,7 @@ public class EtudiantRestController {
         etudiantRepository.deleteById(id);
     }
 
-    @PutMapping(value="/listMatiers/{id}")
-    public Matiere update(@PathVariable(name="id") Long id,@RequestBody Matiere p){
-        p.setId(id);
-        return matiereRepository.save(p);
 
-    }
-
-    @PostMapping(value="/listMatiers")
-    public Matiere save(@RequestBody Matiere p) {
-        return matiereRepository.save(p);
-    }
-
-    @DeleteMapping(value="/listMatiers/{id}")
-    public void deleteMatiere(@PathVariable(name="id") Long id) {
-        matiereRepository.deleteById(id);
-    }
 
 
 
