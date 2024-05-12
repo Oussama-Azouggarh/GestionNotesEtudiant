@@ -6,11 +6,13 @@ import com.msid.gestionnotesetudiant.entities.Matiere;
 import com.msid.gestionnotesetudiant.repository.EtudiantRepository;
 import com.msid.gestionnotesetudiant.repository.MatiereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/etudiant")
 public class EtudiantRestController {
     @Autowired
     private EtudiantRepository etudiantRepository;
@@ -20,7 +22,6 @@ public class EtudiantRestController {
 
     @GetMapping(value="/listEtudiants")
     public List<Etudiant> listEtudiants(){
-
         return etudiantRepository.findAll();
     }
 

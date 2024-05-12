@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.data.rest.core.annotation.RestResource;
+//import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+//import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin("*")
-@RepositoryRestResource
+//@RepositoryRestResource
 public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 /*
     Optional<Etudiant> findById(long id);
@@ -27,7 +27,7 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 */
 
     Optional<Etudiant> findByNiveau(String niveau);
-    @RestResource (path = "/byFirstName")
+    /*@RestResource (path = "/byFirstName")
     public List<Etudiant> findByFirstNameContains(@Param("mc") String first);
     @RestResource (path = "/byFirstNamePage")
     public Page<Etudiant> findByFirstNameContains(@Param("mc") String first, Pageable pageable);
@@ -40,7 +40,7 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
     @RestResource (path = "/byNiveau")
     public List<Etudiant> findByNiveauContains(@Param("mc") String niveau);
     @RestResource (path = "/byNiveauPage")
-    public Page<Etudiant> findByNiveauContains(@Param("mc") String niveau, Pageable pageable);
+    public Page<Etudiant> findByNiveauContains(@Param("mc") String niveau, Pageable pageable);*/
 
 
 }

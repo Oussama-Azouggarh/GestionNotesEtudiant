@@ -1,4 +1,4 @@
-package com.msid.gestionnotesetudiant.entities;
+/*package com.msid.gestionnotesetudiant.entities;
 
 
 import org.springframework.data.rest.core.config.Projection;
@@ -8,4 +8,4 @@ public interface EtudiantProjection {
 
     public String getFirstName();
 
-}
+}*/

@@ -11,18 +11,20 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+//import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import java.util.UUID;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "com.msid.gestionnotesetudiant.*")
 public class GestionNotesEtudiantApplication {
 	@Autowired
 	private EtudiantRepository etudiantRepository;
 	@Autowired
 	private MatiereRepository matiereRepository;
-	@Autowired
-	private RepositoryRestConfiguration restConfiguration;
+	/*@Autowired
+	private RepositoryRestConfiguration restConfiguration;*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionNotesEtudiantApplication.class, args);
@@ -30,9 +32,9 @@ public class GestionNotesEtudiantApplication {
 
 	@Bean
 	CommandLineRunner commandLineRunner(EtudiantRepository etudiantRepository, NoteRepository noteRepository, MatiereRepository matiereRepository){
-		restConfiguration.exposeIdsFor(Etudiant.class);
+		/*restConfiguration.exposeIdsFor(Etudiant.class);
 		restConfiguration.exposeIdsFor(Matiere.class);
-		restConfiguration.exposeIdsFor(Note.class);
+		restConfiguration.exposeIdsFor(Note.class);*/
 
 
 		return args -> {
