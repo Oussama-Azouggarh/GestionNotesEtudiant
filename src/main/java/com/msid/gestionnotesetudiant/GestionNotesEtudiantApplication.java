@@ -40,9 +40,9 @@ public class GestionNotesEtudiantApplication {
 
 
 		return args -> {
-			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada").email("ayoub@ayoub.com").niveau("tcs").classe("A").username("ayoub").password("ayoub")
+			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada").email("ayoub@ayoub.com").niveau("tcs").classe("A")
 					.build());
-			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada").email("oussama@oussama.com").niveau("tcs").classe("B").username("oussama").password("oussama")
+			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada").email("oussama@oussama.com").niveau("tcs").classe("B")
 					.build());
 
 			etudiantRepository.findAll().forEach(et->{

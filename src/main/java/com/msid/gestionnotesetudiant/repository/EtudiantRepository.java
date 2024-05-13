@@ -44,4 +44,5 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
     public Page<Etudiant> findByNiveauContains(@Param("mc") String niveau, Pageable pageable);
 
 
+    Etudiant findByUsernameAndPassword(String username, String password);
 }

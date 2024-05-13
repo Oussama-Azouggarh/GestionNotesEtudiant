@@ -1,10 +1,13 @@
 package com.msid.gestionnotesetudiant.web;
 
 
+import com.msid.gestionnotesetudiant.entities.Admin;
 import com.msid.gestionnotesetudiant.entities.Etudiant;
 import com.msid.gestionnotesetudiant.entities.Matiere;
 import com.msid.gestionnotesetudiant.repository.EtudiantRepository;
 import com.msid.gestionnotesetudiant.repository.MatiereRepository;
+import com.msid.gestionnotesetudiant.service.EtudiantService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +19,10 @@ import java.util.List;
 public class EtudiantRestController {
     @Autowired
     private EtudiantRepository etudiantRepository;
-
+    @Autowired
+    private EtudiantService etudiantService;
+    @Autowired
+    private MatiereRepository matiereRepository;
 
 
     @GetMapping(value="/listEtudiants")
@@ -48,12 +54,23 @@ public class EtudiantRestController {
         return etudiantRepository.save(p);
     }
 
+    @Transactional
     @DeleteMapping(value="/listEtudiants/{id}")
-    public void deleteEtudiant(@PathVariable(name="id") Long id) {
+    public void deleteEtudiant(@PathVariable(name="id") Long id,@PathVariable(name="id") Long id_etudiant) {
         etudiantRepository.deleteById(id);
+        List<Matiere> matieres = matiereRepository.findByEtudiantId(id);
+        for (Matiere matiere : matieres) {
+            matiereRepository.delete(matiere);
+        }
     }
 
+    @GetMapping(path = "/find/{username}/{password}")
+    public Etudiant getEtudiantByUsernameAndPassword(@PathVariable String username, @PathVariable String password) {
 
+        Etudiant etudiant = etudiantService.getEtudiantByUsernameAndPassword(username, password);
+
+        return etudiant;
+    }
 
 
 
