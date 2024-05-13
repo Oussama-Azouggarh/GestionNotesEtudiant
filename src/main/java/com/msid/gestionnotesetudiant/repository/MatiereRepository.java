@@ -16,5 +16,5 @@ public interface MatiereRepository extends JpaRepository<Matiere,Long> {
     Optional<Matiere> findById(Long id);
 
 
-
+    List<Matiere> findByEtudiantId(Long id);
 }
