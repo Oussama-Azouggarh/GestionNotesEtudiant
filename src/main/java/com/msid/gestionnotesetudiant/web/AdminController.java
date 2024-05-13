@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
