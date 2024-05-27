@@ -24,7 +24,7 @@ public class Matiere implements Serializable {
 
     private double noteMatiere=0.0;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_Etudiant")
     private Etudiant etudiant;
 
