@@ -14,11 +14,11 @@ public class Note implements Serializable {
     private Long id;
     private double Valeur;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_Etudiant")
     private Etudiant etudiant;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_matiere")
     private Matiere matiere;
 

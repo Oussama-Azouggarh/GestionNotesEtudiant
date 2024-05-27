@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class Etudiant implements Serializable {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
@@ -23,7 +22,9 @@ public class Etudiant implements Serializable {
     private String email;
     private String niveau;
     private String classe;
-    
+
+
+
 
 
 
