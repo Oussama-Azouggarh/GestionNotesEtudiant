@@ -58,10 +58,6 @@ public class EtudiantRestController {
     @DeleteMapping(value="/listEtudiants/{id}")
     public void deleteEtudiant(@PathVariable(name="id") Long id,@PathVariable(name="id") Long id_etudiant) {
         etudiantRepository.deleteById(id);
-        List<Matiere> matieres = matiereRepository.findByEtudiantId(id);
-        for (Matiere matiere : matieres) {
-            matiereRepository.delete(matiere);
-        }
     }
 
     @GetMapping(path = "/find/{username}/{password}")

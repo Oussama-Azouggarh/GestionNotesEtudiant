@@ -1,5 +1,7 @@
 package com.msid.gestionnotesetudiant.entities;
 import java.io.Serializable;
+import java.util.List;
+import java.util.ArrayList;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +27,10 @@ public class Matiere implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_Etudiant")
     private Etudiant etudiant;
+
+
+    @OneToMany(mappedBy = "matiere", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Note> notes = new ArrayList<>(); // Corrected initializer
 
 
     public void calculerMoyenneMatiere() {

@@ -18,10 +18,8 @@ public class Note implements Serializable {
     @JoinColumn(name = "id_Etudiant")
     private Etudiant etudiant;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_matiere")
     private Matiere matiere;
-
-
 
 }

@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 @CrossOrigin("*")
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
@@ -23,6 +26,9 @@ public class Etudiant implements Serializable {
     private String email;
     private String niveau;
     private String classe;
+
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Matiere> matieres = new ArrayList<>();
     
 
 
