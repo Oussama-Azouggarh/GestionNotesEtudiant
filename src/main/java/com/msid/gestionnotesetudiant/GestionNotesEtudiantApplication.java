@@ -1,8 +1,10 @@
 package com.msid.gestionnotesetudiant;
 
+import com.msid.gestionnotesetudiant.entities.Admin;
 import com.msid.gestionnotesetudiant.entities.Etudiant;
 import com.msid.gestionnotesetudiant.entities.Matiere;
 import com.msid.gestionnotesetudiant.entities.Note;
+import com.msid.gestionnotesetudiant.repository.AdminRepository;
 import com.msid.gestionnotesetudiant.repository.EtudiantRepository;
 import com.msid.gestionnotesetudiant.repository.MatiereRepository;
 import com.msid.gestionnotesetudiant.repository.NoteRepository;
@@ -32,7 +34,7 @@ public class GestionNotesEtudiantApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(EtudiantRepository etudiantRepository, NoteRepository noteRepository, MatiereRepository matiereRepository){
+	CommandLineRunner commandLineRunner(EtudiantRepository etudiantRepository, NoteRepository noteRepository, MatiereRepository matiereRepository, AdminRepository adminRepository){
 
 		restConfiguration.exposeIdsFor(Etudiant.class);
 		restConfiguration.exposeIdsFor(Matiere.class);
@@ -40,10 +42,14 @@ public class GestionNotesEtudiantApplication {
 
 
 		return args -> {
-			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada").email("ayoub@ayoub.com").niveau("tcs").classe("A")
+			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada")
+					.email("ayoub@ayoub.com").niveau("tcs").username("ayoub").password("ayoub").classe("A")
 					.build());
-			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada").email("oussama@oussama.com").niveau("tcs").classe("B")
+			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada")
+					.email("oussama@oussama.com").niveau("tcs").classe("B")
 					.build());
+			adminRepository.save(Admin.builder().firstName("anas").lastName("hada").email("anas@ayoub.com")
+					.username("anas").password("anas").build());
 
 			etudiantRepository.findAll().forEach(et->{
 					Matiere matiere=Matiere.builder().Nom("math").devoir1(15.0).devoir2(12).devoir3(20).Coeff(5).etudiant(et).build();
