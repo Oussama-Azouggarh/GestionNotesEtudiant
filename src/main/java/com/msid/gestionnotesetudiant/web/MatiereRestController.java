@@ -18,15 +18,19 @@ public class MatiereRestController {
     public List<Matiere> listMatieres(){
         return matiereRepository.findAll();
     }
+
     @PutMapping(value="/listMatieres/{id}")
     public Matiere update(@PathVariable(name="id") Long id,@RequestBody Matiere p){
         p.setId(id);
+        p.calculerMoyenneMatiere();
+        System.out.println("Updated Matiere: " + p);
         return matiereRepository.save(p);
 
     }
 
     @PostMapping(value="/listMatieres")
     public Matiere save(@RequestBody Matiere p) {
+        p.calculerMoyenneMatiere();
         return matiereRepository.save(p);
     }
 

@@ -24,7 +24,7 @@ public class Matiere implements Serializable {
 
     private double noteMatiere=0.0;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne/*(cascade = CascadeType.REMOVE)*/
     @JoinColumn(name = "id_Etudiant")
     private Etudiant etudiant;
 
@@ -36,7 +36,7 @@ public class Matiere implements Serializable {
     public void calculerMoyenneMatiere() {
 
          double sommeDevoirs = this.devoir1 + this.devoir2 + this.devoir3;
-          noteMatiere=sommeDevoirs / 3 ;
+          this.noteMatiere=sommeDevoirs / 3 ;
 
     }
 
