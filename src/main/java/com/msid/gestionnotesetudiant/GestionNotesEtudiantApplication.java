@@ -42,27 +42,85 @@ public class GestionNotesEtudiantApplication {
 
 
 		return args -> {
-			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hada")
-					.email("ayoub@ayoub.com").niveau("tcs").username("ayoub").password("ayoub").classe("A")
+			etudiantRepository.save(Etudiant.builder().firstName("ayoub").lastName("hamdoune")
+					.email("ayoub@msid.com").niveau("tcs").username("ayoub").password("ayoub").classe("A")
 					.build());
-			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("hada")
-					.email("oussama@oussama.com").niveau("tcs").classe("B")
+			etudiantRepository.save(Etudiant.builder().firstName("oussama").lastName("azouggarh")
+					.email("oussama@msid.com").niveau("tcs").classe("B").username("oussama").password("oussama")
 					.build());
-			adminRepository.save(Admin.builder().firstName("anas").lastName("hada").email("anas@ayoub.com")
+			etudiantRepository.save(Etudiant.builder().firstName("driss").lastName("echouikhi")
+					.email("driss@msid.com").niveau("tcs").classe("A").username("driss").password("driss")
+					.build());
+			adminRepository.save(Admin.builder().firstName("prof").lastName("anas").email("anas@msid.com")
 					.username("anas").password("anas").build());
+			adminRepository.save(Admin.builder().firstName("prof").lastName("ziti").email("ziti@msid.com")
+					.username("ziti").password("ziti").build());
 
 			etudiantRepository.findAll().forEach(et->{
-					Matiere matiere=Matiere.builder().Nom("math").devoir1(15.0).devoir2(12).devoir3(20).Coeff(5).etudiant(et).build();
-					matiere.calculerMoyenneMatiere();
-				    matiereRepository.save(matiere);
-				    Note note= Note.builder().Valeur(matiere.getNoteMatiere()).etudiant(et).matiere(matiere).build();
-				    noteRepository.save(note);
 
-					Matiere matiere1=Matiere.builder().Nom("eco").devoir1(10).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
-					matiere1.calculerMoyenneMatiere();
-				    matiereRepository.save(matiere1);
-				    Note note1= Note.builder().Valeur(matiere1.getNoteMatiere()).etudiant(et).matiere(matiere1).build();
-					noteRepository.save(note1);
+
+
+				Matiere matiere2=Matiere.builder().Nom("Mathématiques").devoir1(10).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				matiere2.calculerMoyenneMatiere();
+				matiereRepository.save(matiere2);
+				Note note2= Note.builder().Valeur(matiere2.getNoteMatiere()).etudiant(et).matiere(matiere2).build();
+				noteRepository.save(note2);
+
+				Matiere matiere1=Matiere.builder().Nom("Physique et Chimie").devoir1(15).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				matiere1.calculerMoyenneMatiere();
+				matiereRepository.save(matiere1);
+				Note note1= Note.builder().Valeur(matiere1.getNoteMatiere()).etudiant(et).matiere(matiere1).build();
+				noteRepository.save(note1);
+
+				Matiere matiere3=Matiere.builder().Nom("Français").devoir1(16).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				matiere3.calculerMoyenneMatiere();
+				matiereRepository.save(matiere3);
+				Note note3= Note.builder().Valeur(matiere3.getNoteMatiere()).etudiant(et).matiere(matiere3).build();
+				noteRepository.save(note3);
+
+				Matiere matiere4=Matiere.builder().Nom("Anglais").devoir1(17).devoir2(14).devoir3(11).Coeff(2).etudiant(et).build();
+				matiere4.calculerMoyenneMatiere();
+				matiereRepository.save(matiere4);
+				Note note4= Note.builder().Valeur(matiere4.getNoteMatiere()).etudiant(et).matiere(matiere4).build();
+				noteRepository.save(note4);
+
+				Matiere matiere5=Matiere.builder().Nom("Informatique").devoir1(12).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				matiere5.calculerMoyenneMatiere();
+				matiereRepository.save(matiere5);
+				Note note5= Note.builder().Valeur(matiere5.getNoteMatiere()).etudiant(et).matiere(matiere5).build();
+				noteRepository.save(note5);
+
+				Matiere matiere6=Matiere.builder().Nom("Arabe").devoir1(13).devoir2(14).devoir3(14).Coeff(2).etudiant(et).build();
+				matiere6.calculerMoyenneMatiere();
+				matiereRepository.save(matiere6);
+				Note note6= Note.builder().Valeur(matiere6.getNoteMatiere()).etudiant(et).matiere(matiere6).build();
+				noteRepository.save(note6);
+
+				Matiere matiere7=Matiere.builder().Nom("Éducation Islamique").devoir1(9.9).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				matiere7.calculerMoyenneMatiere();
+				matiereRepository.save(matiere7);
+				Note note7= Note.builder().Valeur(matiere7.getNoteMatiere()).etudiant(et).matiere(matiere7).build();
+				noteRepository.save(note7);
+
+				Matiere matiere8=Matiere.builder().Nom("Histoire et Géographie").devoir1(19).devoir2(14).devoir3(10).Coeff(2).etudiant(et).build();
+				matiere8.calculerMoyenneMatiere();
+				matiereRepository.save(matiere8);
+				Note note8= Note.builder().Valeur(matiere8.getNoteMatiere()).etudiant(et).matiere(matiere8).build();
+				noteRepository.save(note8);
+
+				Matiere matiere9=Matiere.builder().Nom("Philosophie").devoir1(15).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				matiere9.calculerMoyenneMatiere();
+				matiereRepository.save(matiere9);
+				Note note9= Note.builder().Valeur(matiere9.getNoteMatiere()).etudiant(et).matiere(matiere9).build();
+				noteRepository.save(note9);
+
+				Matiere matiere=Matiere.builder().Nom("Éducation physique et sportive").devoir1(15.0).devoir2(12).devoir3(17).Coeff(5).etudiant(et).build();
+				matiere.calculerMoyenneMatiere();
+				matiereRepository.save(matiere);
+				Note note= Note.builder().Valeur(matiere.getNoteMatiere()).etudiant(et).matiere(matiere).build();
+				noteRepository.save(note);
+
+
 
 
 
