@@ -60,25 +60,25 @@ public class GestionNotesEtudiantApplication {
 
 
 
-				Matiere matiere2=Matiere.builder().Nom("Mathématiques").devoir1(10).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				Matiere matiere2=Matiere.builder().Nom("Mathématiques").devoir1(10).devoir2(14).devoir3(20).Coeff(4).etudiant(et).build();
 				matiere2.calculerMoyenneMatiere();
 				matiereRepository.save(matiere2);
 				Note note2= Note.builder().Valeur(matiere2.getNoteMatiere()).etudiant(et).matiere(matiere2).build();
 				noteRepository.save(note2);
 
-				Matiere matiere1=Matiere.builder().Nom("Physique et Chimie").devoir1(15).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				Matiere matiere1=Matiere.builder().Nom("Physique et Chimie").devoir1(15).devoir2(14).devoir3(20).Coeff(4).etudiant(et).build();
 				matiere1.calculerMoyenneMatiere();
 				matiereRepository.save(matiere1);
 				Note note1= Note.builder().Valeur(matiere1.getNoteMatiere()).etudiant(et).matiere(matiere1).build();
 				noteRepository.save(note1);
 
-				Matiere matiere3=Matiere.builder().Nom("Français").devoir1(16).devoir2(14).devoir3(20).Coeff(2).etudiant(et).build();
+				Matiere matiere3=Matiere.builder().Nom("Français").devoir1(16).devoir2(14).devoir3(20).Coeff(3).etudiant(et).build();
 				matiere3.calculerMoyenneMatiere();
 				matiereRepository.save(matiere3);
 				Note note3= Note.builder().Valeur(matiere3.getNoteMatiere()).etudiant(et).matiere(matiere3).build();
 				noteRepository.save(note3);
 
-				Matiere matiere4=Matiere.builder().Nom("Anglais").devoir1(17).devoir2(14).devoir3(11).Coeff(2).etudiant(et).build();
+				Matiere matiere4=Matiere.builder().Nom("Anglais").devoir1(17).devoir2(14).devoir3(11).Coeff(3).etudiant(et).build();
 				matiere4.calculerMoyenneMatiere();
 				matiereRepository.save(matiere4);
 				Note note4= Note.builder().Valeur(matiere4.getNoteMatiere()).etudiant(et).matiere(matiere4).build();
@@ -114,7 +114,7 @@ public class GestionNotesEtudiantApplication {
 				Note note9= Note.builder().Valeur(matiere9.getNoteMatiere()).etudiant(et).matiere(matiere9).build();
 				noteRepository.save(note9);
 
-				Matiere matiere=Matiere.builder().Nom("Éducation physique et sportive").devoir1(15.0).devoir2(12).devoir3(17).Coeff(5).etudiant(et).build();
+				Matiere matiere=Matiere.builder().Nom("Éducation physique et sportive").devoir1(15.0).devoir2(12).devoir3(17).Coeff(2).etudiant(et).build();
 				matiere.calculerMoyenneMatiere();
 				matiereRepository.save(matiere);
 				Note note= Note.builder().Valeur(matiere.getNoteMatiere()).etudiant(et).matiere(matiere).build();
