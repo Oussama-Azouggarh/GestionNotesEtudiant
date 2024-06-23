@@ -126,6 +126,14 @@ public class GestionNotesEtudiantApplication {
 				Note note= Note.builder().Valeur(matiere.getNoteMatiere()).etudiant(et).matiere(matiere).build();
 				noteRepository.save(note);
 
+				Matiere matiere10=Matiere.builder().Nom("Sciences de l'ingénieur").devoir1(15.0).devoir2(12).devoir3(17).Coeff(2).etudiant(et).build();
+				matiere10.calculerMoyenneMatiere();
+				matiereRepository.save(matiere10);
+				Note note10= Note.builder().Valeur(matiere10.getNoteMatiere()).etudiant(et).matiere(matiere10).build();
+				noteRepository.save(note);
+
+
+
 
 
 
