@@ -72,6 +72,12 @@ public class GestionNotesEtudiantApplication {
 				Note note1= Note.builder().Valeur(matiere1.getNoteMatiere()).etudiant(et).matiere(matiere1).build();
 				noteRepository.save(note1);
 
+                Matiere matiere0=Matiere.builder().Nom("Sciences de la Vie et de la Terre").devoir1(15).devoir2(14).devoir3(20).Coeff(4).etudiant(et).build();
+                matiere0.calculerMoyenneMatiere();
+                matiereRepository.save(matiere0);
+                Note note0= Note.builder().Valeur(matiere0.getNoteMatiere()).etudiant(et).matiere(matiere0).build();
+                noteRepository.save(note1);
+
 				Matiere matiere3=Matiere.builder().Nom("Français").devoir1(16).devoir2(14).devoir3(20).Coeff(3).etudiant(et).build();
 				matiere3.calculerMoyenneMatiere();
 				matiereRepository.save(matiere3);
